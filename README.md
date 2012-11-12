@@ -1,4 +1,3 @@
-site
-====
+#Pompage
 
-Organisation code et bug tracker liés au site htp://pompage.net/
+Gestion du code source et des demandes relatives au site [Pompage](htp://pompage.net/)
