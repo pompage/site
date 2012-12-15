@@ -1,0 +1,53 @@
+#HTTP_HEADER{Content-Type: application/rss+xml;charset=UTF-8}
+<?xml version="1.0" encoding="#CHARSET" ?>
+<rss version="0.91" xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+  <channel>
+    <title>[(#NOM_SITE_SPIP|texte_backend)]</title>
+    [<link>(#URL_SITE_SPIP)/</link>]
+    [<description>(#DESCRIPTIF_SITE_SPIP|texte_backend)</description>]
+    [<language>(#LANG)</language>]
+
+    <image>
+      [<title>(#NOM_SITE_SPIP|texte_backend)</title>]
+      <url>http://www.pompage.net/IMG/gif/p02.gif</url>
+      [<link>(#URL_SITE_SPIP)/</link>]
+    </image>
+
+		<BOUCLE_brevessel(BREVES){!par date}{0,10}{id_rubrique=1}{doublons sel} />
+
+		<BOUCLE_articles(ARTICLES){!par date}{0,10}{id_rubrique=1}>
+			<BOUCLE_breves(BREVES){!par date}{date>#DATE}{!doublons sel}{doublons}>
+				<item>
+					<title>Traduit ailleurs : [(#TITRE|texte_backend)]</title>
+					<link>#LIEN_URL</link>
+					<pubDate>[(#DATE|affdate{"r"})]</pubDate>
+					<description>[(#TEXTE|texte_backend)]</description>
+					<dc:format>text/html</dc:format>
+					<dc:language>[(#LANG)]</dc:language>
+					<dc:creator><BOUCLE_auteur_b(MOTS) {id_breve} {id_groupe=2}>[(#TITRE|texte_backend)]</BOUCLE_auteur_b></dc:creator>
+				</item>
+			</BOUCLE_breves>
+			<item>
+				<title>[(#TITRE|texte_backend)]</title>
+				<link>[(#URL_ARTICLE|url_absolue)]</link>
+				<pubDate>[(#DATE|affdate{"r"})]</pubDate>
+				<description>[(#INTRODUCTION|texte_backend)]</description>
+				<dc:format>text/html</dc:format>
+				<dc:language>[(#LANG)]</dc:language>
+				<dc:creator><BOUCLE_auteur(MOTS) {id_article} {id_groupe=2}>[(#TITRE|texte_backend)]</BOUCLE_auteur></dc:creator>
+			</item>
+		</BOUCLE_articles>
+		<BOUCLE_brevesfin(BREVES){!par date}{!doublons sel}{doublons}>
+		<item>
+			<title>Traduit ailleurs : [(#TITRE|texte_backend)]</title>
+			<link>#LIEN_URL</link>
+			<pubDate>[(#DATE|affdate{"r"})]</pubDate>
+			<description>[(#TEXTE|texte_backend)]</description>
+			<dc:format>text/html</dc:format>
+			<dc:language>[(#LANG)]</dc:language>
+			<dc:creator><BOUCLE_auteur_bfin(MOTS) {id_breve} {id_groupe=2}>[(#TITRE|texte_backend)]</BOUCLE_auteur_bfin></dc:creator>
+		</item>
+		</BOUCLE_brevesfin>
+  </channel>
+</rss>

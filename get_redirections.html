@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Liste des redirections et liens vers articles</title>
+    <style type="text/css">
+      small {
+        color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <!-- <pre>
+
+    <BOUCLE_redirect(ARTICLES) {par id_article} {tout}>RewriteRule ^#PERMALIEN      #URL_ARTICLE
+    </BOUCLE_redirect>
+    </pre> -->
+    <ul>
+    <BOUCLE_links(ARTICLES) {par id_article} {tout}><li>#ID_ARTICLE <a href="#URL_SITE_SPIP/pompe/#PERMALIEN">#TITRE</a>
+        <br /><small>pompe/#PERMALIEN</small>
+        <br /><small>#URL_ARTICLE</small>
+      </li>
+    </BOUCLE_links>
+    </ul>
+  
+  </body>
+</html>

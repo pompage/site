@@ -1,0 +1,141 @@
+#SET{array_rubriques, #ARRAY}
+#SET{array_rubriques, #GET{array_rubriques}|push{1}|push{5}}
+[(#AUTORISER{voir,article,#ID_ARTICLE}) #SET{array_rubriques, #GET{array_rubriques}|push{3}|push{4}}]
+
+<BOUCLE_article_principal(ARTICLES) {id_article} {id_rubrique IN #GET{array_rubriques}}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
+    [<meta name="description" content="(#META_DESCRIPTION|attribut_html)" />]
+    [<meta name="keywords" content="(#META_KEYWORDS|attribut_html)" />]
+    [<meta name="canonical" content="(#URL_ARTICLE|url_absolue)" />]
+    
+    <title>Pompage.net - [(#TITRE|textebrut)]</title>
+
+
+<INCLURE{fond=inc_head}>
+[
+    <style type="text/css">
+        <!--(#CSS) -->
+    </style>
+]
+[
+    <script type="text/javascript">
+        <!-- (#JS) //-->
+    </script>
+]
+  </head>
+
+  <body>
+    <div id="site">
+      <div id="header">
+        <a href="#URL_SITE_SPIP">Pompage - Web design puisé à la source.</a>
+      </div> <!-- fin #header -->
+
+  <INCLURE{fond=inc_navigation}>
+
+      <div id="article">
+        <h1>#TITRE</h1>
+        <p class="signature">Par
+  <BOUCLE_mot1(MOTS) {id_article} {type="Auteur"} {"et "}>
+        [<a title="Le site de #TITRE." href="(#URL_AUTEUR)" hreflang="en">]#TITRE[</a>(#URL_AUTEUR|oui)]
+  </BOUCLE_mot1>
+        </p>
+        [<div class="moreInfo">
+          (#CHAPO*)
+        </div>]
+        #TEXTE
+
+        [<div class="moreInfo">
+          (#PS*)
+        </div>]
+        
+        #NOTES
+      </div> <!-- fin #article -->
+
+
+      <div id="fiche">
+        <h2>Fiche technique</h2>
+        <ul>[
+          <li>
+            <em>Article original&#160;:</em>
+            <a href="[(#URL_ORIG)]" hreflang="en">(#TITRE_ORIG)</a>
+          </li>]
+          <li>
+            <em>Auteur&#160;:</em>
+  <BOUCLE_mot2(MOTS) {id_article} {type="Auteur"} {"et "}>
+            [<a title="Le site de #TITRE." href="(#URL_AUTEUR)" hreflang="en">]#TITRE[</a>(#URL_AUTEUR|oui)]
+  </BOUCLE_mot2>
+          </li>[
+          <li><em>Date de parution&#160;:</em> (#DATE_ORIG)</li>]
+  <B_traducteur>
+          <li>
+            <em>Traduction&#160;:</em>
+  <BOUCLE_traducteur(AUTEURS) {id_article}{", "}>
+            [<a href="(#URL_SITE)" title="#NOM, site personnel">]#NOM[</a><!-- (#URL_SITE) -->]</BOUCLE_traducteur>
+          </li>
+  </B_traducteur>[
+          <li><em>Date de traduction&#160;:</em> (#DATE|nom_mois)] [(#DATE|annee)</li>]
+  <B_themes>
+          <li>
+            <em>[(#TOTAL_BOUCLE|>{1}|?{'Thèmes','Thème'})]&#160;:</em>
+  <BOUCLE_themes(MOTS) {id_article} {id_groupe=1} {", "}><a href="/articles_par_theme#theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]">#TITRE</a></BOUCLE_themes>
+          </li>
+  </B_themes>
+  <B_niveau>
+          <li>
+            <em>Niveau&#160;:</em>
+  <BOUCLE_niveau(MOTS) {id_article} {id_groupe=3} {", "}><a href="/articles_par_niveau#niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]">[(#TITRE|supprimer_numero)]</a></BOUCLE_niveau>
+          </li>
+  </B_niveau>
+        </ul>
+      </div> <!-- fin #fiche -->
+
+#SET{auteurs,#ARRAY}
+<BOUCLE_select_auteur(MOTS) {id_article} {id_groupe=2}> #SET{auteurs,#GET{auteurs}|push{#ID_MOT}} </BOUCLE_select_auteur>
+<B_mot3>
+      <div id="bio">
+        <h2>À propos de l'auteur</h2>
+<BOUCLE_mot3(MOTS) {id_article=#_article_principal:ID_ARTICLE} {type="Auteur"}>
+        #DESCRIPTIF
+</BOUCLE_mot3>
+  <B_meme_auteur>
+        <h3>[(#TOTAL_BOUCLE|>{1}|?{'Articles','Article'})] du même auteur</h3>
+        <ul>
+  <BOUCLE_meme_auteur(ARTICLES) {id_mot IN #GET{auteurs}} {id_article != #_article_principal:ID_ARTICLE} {par date} {inverse} {0,5}>
+          <li><a href="#URL_ARTICLE">#TITRE</a></li>
+  </BOUCLE_meme_auteur>
+        </ul>
+    <BOUCLE_articles_auteur(ARTICLES) {id_mot IN #GET{auteurs}} {id_article != #_article_principal:ID_ARTICLE} {par date} {inverse} {0,6} />
+    [<p>(#TOTAL_BOUCLE|>{5}|?{' ',''})
+      [<a href="/articles_par_auteur#auteur-(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})">Voir tous les articles de l'auteur</a>]
+    </p>]
+    </B_articles_auteur>
+  </B_meme_auteur>
+      </div> <!-- fin #bio -->
+</B_mot3>
+
+      <div id="similaires">
+        <h2>Articles similaires</h2>
+        <p>
+          Voici la liste des dix articles les plus récents en rapport avec cet article&nbsp;:
+        </p>
+  <BOUCLE_similaires(MOTS) {id_article}{id_groupe!=2}{par titre}>
+    <BOUCLE_cat_mot(ARTICLES) {id_mot} {par date} {inverse} {0,10}>
+        [<h3>(#_similaires:TITRE|unique{menu}||supprimer_numero)</h3>]
+        <ul>
+          <li><a href="#URL_ARTICLE">#TITRE</a></li>
+        </ul>
+    </BOUCLE_cat_mot>
+  </BOUCLE_similaires>
+      </div> <!-- fin #similaires -->
+
+  <INCLURE{fond=footer}>
+    </div> <!-- fin #site -->
+  </body>
+</html>
+</BOUCLE_article_principal>
+<INCLURE{fond=404}>
+<//B_article_principal>

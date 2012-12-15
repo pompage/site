@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
+  
+    <title>Pompage.net : le web design puisé à la source</title>
+  
+<INCLURE{fond=inc_head}>
+</head>
+
+<body id="home">
+  <div id="site">
+
+    <div id="header">
+      <h1>Pompage</h1>
+    </div> <!-- fin #header -->
+
+<INCLURE{fond=inc_navigation}>
+
+    <div id="une">
+      <div id="nouveau" class="bloc_une">
+<BOUCLE_nouveau_une(ARTICLES){id_rubrique=1}{par date}{0,1}{inverse}>
+				[(#SET{titre,Dernière édition - [(#DATE|affdate{d/m/Y})]})]
+				[(#SET{titreimage,[(#GET{titre}
+					|image_typo{police=DINNeuzeitGrotesk-BoldCond.ttf,taille=13.5,couleur=ffffff,padding=0}
+					|image_recadre{203,21,left,transparent}
+					|image_recadre{212,21,right,transparent}
+					|extraire_attribut{src})]})]
+				<h2>[(#CHEMIN{back_derniere.png}|image_masque{#GET{titreimage},mode=normal}|inserer_attribut{alt,#GET{titre}})]</h2>
+        <h3><a href="#URL_ARTICLE">#TITRE</a><B_auteur_une> <span class="auteur">
+        par <BOUCLE_auteur_une(MOTS) {id_article} {type="Auteur"} {" et "}>#TITRE</BOUCLE_auteur_une></span></B_auteur_une></h3>
+        <p>[(#DESCRIPTIF|ptobr)] <a href="#URL_ARTICLE" title="[(#TITRE|attribut_html)]" class="plus">Lire l'article.</a></p>
+</BOUCLE_nouveau_une>
+      </div> <!-- fin #nouveau -->
+
+<B_annonce_une>
+      <div id="annonces" class="bloc_une">
+<BOUCLE_annonce_une(ARTICLES) {id_rubrique=5} {age_redac<0} {tout} {par date} {0,1}{inverse}>
+        <h3><a href="#URL_ARTICLE">#TITRE</a> [<strong><small>(#DATE_REDAC|date_relativecourt)&nbsp;!</small></strong> ]</h3>
+        <p>[(#DESCRIPTIF|ptobr)] <a href="#URL_ARTICLE" title="[(#TITRE|attribut_html)]" class="plus">Lire l'article.</a></p>
+</BOUCLE_annonce_une>
+      </div> <!-- fin #annonces -->
+</B_annonce_une>
+
+      <div id="ancien" class="bloc_une">
+        <h2><img src="#CHEMIN{t_precedent.gif}" alt="Éditions précédentes" width="212" height="21" /></h2>
+<BOUCLE_nouveau(ARTICLES){id_rubrique=1}{par date}{1,2}{inverse}>
+        <h3><a href="#URL_ARTICLE">#TITRE</a><B_auteur> 
+        <span class="auteur">par <BOUCLE_auteur(MOTS) {id_article} {type="Auteur"} {" et "}>#TITRE</BOUCLE_auteur></span></B_auteur></h3>
+        <p>[(#DESCRIPTIF|ptobr)] <a href="#URL_ARTICLE" title="[(#TITRE|attribut_html)]" class="plus">Lire l'article.</a></p>
+</BOUCLE_nouveau>
+<p class="plus"><a href="articles" title="Voir toutes les traductions parues sur pompage.net">Et des archives&#8230;</a></p>
+      </div> <!-- fin #ancien -->
+
+    </div> <!-- fin #une -->
+
+    <div id="externes">
+      <h2><img src="#CHEMIN{t_ailleurs.gif}" alt="Traduit ailleurs" width="241" height="23" /></h2>
+<BOUCLE_ailleurs(BREVES){par date}{inverse}{0,2}>
+      <h3><a href="#URL_SITE">#TITRE</a><B_auteur3> 
+      <span class="auteur">par <BOUCLE_auteur3(MOTS) {id_breve} {type="Auteur"}>#TITRE</BOUCLE_auteur3></span></B_auteur3></h3>
+      <p>[(#DATE|jour)]/[(#DATE|mois)]/[(#DATE|annee)]
+      [ - (#TEXTE|pompage_strip_tags)]
+      <a href="#URL_SITE" title="[(#TITRE|attribut_html)]" class="plus">Vers l'article&#8230;</a></p>
+</BOUCLE_ailleurs>
+
+      <p class="plus"><a href="/ailleurs" title="Voir toutes les traductions parues ailleurs">Encore ailleurs&#8230;</a></p>
+    </div> <!-- fin #externes -->
+
+<INCLURE{fond=footer}>
+
+  </div> <!-- fin #site -->
+</body>
+</html>

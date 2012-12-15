@@ -1,0 +1,777 @@
+/*  ------------------------------------------
+/*  Corps Principal
+/*  ------------------------------------------
+*/
+body {
+  background: #FFF;
+  margin: 0;
+  padding: 0;
+  font: 100% Verdana, Geneva, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+  text-align: center;
+}
+
+#site {
+  width: 700px;
+  margin: 8px auto;
+  padding: 0;
+  text-align: left;
+  font-size: 70%;
+  line-height: 150%;
+  background: url(decodroite.gif) repeat-y 459px 0;
+}
+#home #site, #plan #site {
+  background: #FFF;
+}
+
+#plan h1 { color: #CB1804; margin-top:1em; }
+#plan img { float:left; margin-right:20px; }
+#plan ul { float:left; }
+/* #plan h2 { clear:left; } */
+
+/*  ------------------------------------------
+/*  Header
+/*  ------------------------------------------
+*/
+#home h1 {
+  width: 216px;
+  height: 145px;
+  margin: 0 0 0 481px;
+  padding: 0px;
+  background: url(pompage.gif) no-repeat bottom;
+  text-indent: -9000px;
+}
+
+#home #header {
+  background: #FFF url(hdr_hme.jpg) no-repeat;
+  height: 222px;
+  margin: 0;
+  padding-bottom: 1px;
+}
+
+
+
+/*  ------------------------------------------
+/*  Navigation
+/*  ------------------------------------------
+*/
+#navigation {
+  width: 700px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 15px;
+  list-style: none;
+  background: #FFF url(nav.gif) no-repeat;
+}
+
+#navigation li {
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  float: left;
+  text-indent: -9000px;
+}
+
+#navigation a {
+  display: block;
+  height: 100%;
+}
+
+#navigation li a:link, #navigation li a:visited {
+  color: #FFF;
+  text-decoration: none;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+#navhome {
+  width: 80px;
+  background: url(nav_home.gif) no-repeat;
+}
+#nav1 {
+  width: 142px;
+  background: url(nav_articles.gif) no-repeat;
+}
+#nav2 {
+  width: 101px;
+  background: url(nav_ressources.gif) no-repeat;
+}
+#nav3 {
+  width: 85px;
+  background: url(nav_aprop.gif) no-repeat;
+}
+#nav4 {
+  width: 78px;
+  background: url(nav_contact.gif) no-repeat;
+}
+
+
+/*  ------------------------------------------
+/*  Colonne principale - Home
+/*  ------------------------------------------
+*/
+#une, #article, #contenu2 {
+  float: left;
+  width: 430px;
+  margin-top: 0px;
+}
+/*
+#nouveau h2 {
+  width: 212px;
+  height: 21px;
+  background: url(t_derniere.gif) no-repeat;
+  text-indent: -9000px;
+  margin: 0 0 -0.5em;
+}
+
+
+#ancien h2 {
+  width: 212px;
+  height: 21px;
+  background: url(t_precedent.gif) no-repeat;
+  text-indent: -9000px;
+  margin: 2em 0 -0.5em;
+}
+*/
+.bloc_une:first-child h2 {
+  margin: 0 auto;
+}
+
+#une h3 {
+  font: italic 1.5em Georgia, "Times New Roman", Times, serif;
+  color: #454545;
+  text-indent: 19px;
+  margin: .25em 0 0.2em;
+}
+
+#une h3 a:link, #une h3 a:visited {
+  color: #454545;
+  text-decoration:none;
+}
+
+#une h3 a:hover, #une h3 a:active, #une h3 a:focus {
+  color:#000000;
+  text-decoration:underline;
+}
+
+.bloc_une h3 {
+  background: url(dot_bigred.gif) no-repeat 0 3px;
+}
+
+#ancien h3 {
+  background: url(dot_biggreen.gif) no-repeat 0 3px;
+}
+
+h3 span.auteur {
+  font-style: normal;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #696969;
+  white-space: nowrap;
+}
+
+#une p {
+  margin: 0 0 0.9em;
+}
+
+#une a.plus {
+  white-space: nowrap;
+}
+
+#site a.plus:after {
+  content: "\0000a0"url(linkred.gif);
+}
+
+#ancien a.plus:after {
+  content: "\0000a0"url(linkgreen.gif);
+}
+
+
+
+/*  ------------------------------------------
+/*  Colonne de droite - Home
+/*  ------------------------------------------
+*/
+#externes, #fiche, #bio, #tri, #similaires {
+  background: #E2E2E2;
+  width: 241px;
+  margin: 0;
+  padding: 0 10px;
+  float: right;
+  voice-family: "\"}\"";
+  voice-family:inherit;
+  width: 221px;
+}
+#site>#externes, #site>#fiche, #site>#bio, #site>#similaires {
+  width: 221px;
+}
+
+#externes h2 {
+  margin: 0 -10px;
+  padding: 0;
+  /*background: url(t_ailleurs.gif) no-repeat;*/
+  width: 241px;
+  height: 23px;
+  /*text-indent: -9000px;*/
+  font-size: 1.3em;
+}
+
+#externes h3, #bio h3, #similaires h3 {
+  font: bold 1.2em Georgia, "Times New Roman", Times, serif;
+  color: #3C3C3C;
+  background: url(dot_bigblue.gif) no-repeat 0 1px;
+  padding: 0;
+  margin: 0.5em 0;
+  text-indent: 19px;
+  line-height: 130%;
+}
+
+#externes h3 a:link, #externes h3 a:visited {
+  color: #3C3C3C;
+  text-decoration:none;
+}
+
+#externes h3 a:hover, #externes h3 a:active, #externes h3 a:focus {
+  color: #000000;
+  text-decoration:underline;
+}
+
+#externes h3 span.auteur {
+  display: block;
+  font-size: 0.8em;
+  text-indent: 0;
+}
+
+#externes p {
+  margin: 0 -10px;
+  padding: 0 10px 1.5em;
+  background: url(hr.gif) repeat-x bottom;
+}
+
+#externes a.plus {
+  white-space: nowrap;
+}
+#externes a.plus:after {
+  content: "\0000a0"url(linkblue.gif);
+}
+
+p.plus {
+  text-align: right;
+
+}
+p.plus a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#externes p.plus {
+  background: url(greybox_bas.gif) no-repeat bottom;
+  margin-top: 1em;
+  padding-bottom: 0.5em;
+}
+
+#externes p.plus a {
+  color: #398FC6;
+}
+
+
+
+/*  ------------------------------------------
+/*  Footer
+/*  ------------------------------------------
+*/
+p#credits {
+  /*width: 700px;*/
+  height: 26px;
+  padding: 8px 5px 0;
+  clear: both;
+  background: url(footer2.gif) no-repeat 0 0px;
+  color: #FFF;
+  font-size: 10px !important;
+  line-height: 120%;
+  voice-family: "\"}\"";
+  voice-family:inherit;
+  /*width: 690px;*/
+  height: 18px;
+}
+#site>p#credits {
+  height: 18px;
+}
+
+#home p#credits {
+  height: 24px;
+  padding: 5px 5px 0;
+  background: #FFF url(footer.gif) no-repeat 0 5px;
+  voice-family: "\"}\"";
+  voice-family:inherit;
+  height: 19px;
+}
+
+
+
+/*  ------------------------------------------
+/*  Corps de texte - Général
+/*  ------------------------------------------
+*/
+a:link, code a:link, a:link code, p.plus a:link, p.plus a:visited, #tri a:visited {
+  color: #398FC6;
+}
+
+a:visited, code a:visited, a:visited code {
+  color: #525252;
+}
+
+a:hover, code a:hover, a:hover code, p.plus a:hover, #tri a:hover {
+  color: #9FAC0B;
+}
+
+a:active, a:focus, code a:active, a:active code, code a:focus, a:focus code, p.plus a:active, p.plus a:focus,#tri a:active, #tri a:focus {
+  color: #CB1804;
+}
+
+a[hreflang|="en"]:after {
+  content: "\0000a0"url(linken.gif);
+}
+
+a[hreflang] {
+  content: inherit !important; /*  Hack pour Opera, qui ne comprend pas la règle précédente  */
+}
+
+a img {
+  border: 0;
+}
+
+/*  ------------------------------------------
+/*  Header - Pages intérieures
+/*  ------------------------------------------
+*/
+#header {
+  background: #FFF url(hdr_int.jpg) no-repeat;
+  width: 100%;
+  height: 67px;
+  padding-bottom: 3px;
+  voice-family: "\"}\"";
+  voice-family:inherit;
+  height: 64px;
+}
+
+#header a {
+  display: block;
+  height: 100%;
+  text-indent: -9000px;
+  text-decoration: none;
+}
+
+
+
+/*  ------------------------------------------
+/*  Colonne principale - Articles
+/*  ------------------------------------------
+*/
+#article h1 {
+  font: italic 2.2em Georgia, "Times New Roman", Times, serif;
+  text-align: center;
+  color: #CB1804;
+}
+
+#article p.signature {
+  font: bold 1.3em Georgia, "Times New Roman", Times, serif;
+  color: #626262;
+  text-align: center;
+  margin-top: -1em;
+}
+p.signature a:link {
+  color: #626262;
+}
+p.signature a {
+  text-decoration: none;
+}
+p.signature a:after, #fiche a:after, #bio a:after, #similaires a:after {
+  content: "";
+}
+
+#article h2, #contenu h2, #contenu2 h2 {
+  font: bold 1.5em Georgia, "Times New Roman", Times, serif;
+  color: #CB1804;
+  background: url(dot_bigred.gif) no-repeat 0 3px;
+  padding-left: 19px;
+  margin-top: 2em;
+}
+#article h3 {
+  font: bold 1.3em Tahoma, Arial, Geneva, sans-serif;
+  margin-top: 1.5em;
+}
+#article h4 {
+  font: bold 1.1em Tahoma, Arial, Geneva, sans-serif;
+  margin-top: 1.2em;
+}
+#article h2 code, #article h3 code, #article h4 code {
+  color: #CB1804;
+  font-style: italic;
+}
+#article p, #contenu p {
+  font-size: 1.1em;
+  line-height: 150%;
+}
+
+ul, ol {
+  font-size: 1.05em;
+  line-height: 130%;
+  margin-left: 19px;
+  padding-left: 19px;
+  list-style: upper-roman;
+}
+
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 1em;
+}
+
+ul li {
+  margin-left: 15px;
+  padding-left: 16px;
+  background: url(puce.gif) no-repeat 0 4px;
+}
+
+dl {
+  font-size: 1.1em;
+}
+dt {
+  margin: 1.5em 0 0.5em;
+}
+dd {
+  margin-bottom: 0.75em;
+}
+
+pre {
+  background: #EFEFEF url(prebloc.gif) no-repeat 0 0;
+  width: 411px;
+  padding: 30px 5px 10px;
+  font-size: 1.3em;
+  line-height: 1.6em;
+  overflow: auto;
+  overflow-y: hidden; /* IE seulement */
+}
+
+ul pre, ol pre {
+  margin-left: -15px;
+}
+
+code {
+  font-size: 1.2em;
+  color: #526011;
+}
+
+pre code {
+  color: #000;
+}
+
+tt {
+  font-size: 1.3em;
+}
+
+.moreInfo {
+  background: #EFEFEF url(aide.gif) no-repeat 10px 12px;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #2B7FB5;
+/* ajout de Fabien: 20090901 */
+  text-indent: 17px;
+}
+/* suppression de Fabien: 20090901 
+p.moreInfo {
+  text-indent: 17px;
+}*/
+.moreInfo p {
+  text-indent: 17px;
+  margin-top: 0;
+}
+.moreInfo p+p {
+  text-indent: 0;
+}
+
+abbr[title], acronym[title], .help {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+
+blockquote {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  min-height: 60px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  background: url(quote.gif) no-repeat 0 0;
+}
+blockquote p {
+  margin-left: 85px;
+  margin-bottom: 0em;
+  padding-bottom: 0;
+}
+blockquote>p {
+  margin-left: 55px;
+}
+
+q {
+  font-style: italic;
+  quotes: "«\0000a0" "\0000a0»";
+}
+cite {
+  font-style: italic;
+}
+/* ancre back to top */
+#contenu2 h2 a {
+  color: #CB1804;
+}
+
+/* ajout de Fabien: 20090901 */
+#article img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*  ------------------------------------------
+/*  Colonne de droite - Articles
+/*  ------------------------------------------
+*/
+#fiche, #tri, #similaires {
+  background: #E2E2E2 url(greybox_bas2.gif) no-repeat 0 100%;
+  padding-bottom: 20px;
+}
+#bio {
+  background: url(greybox_bas3.gif) no-repeat 0 100%;
+  padding-bottom: 20px;
+  line-height: 170%;
+}
+
+#fiche h2, #bio h2, #tri h2, #similaires h2 {
+  width: 241px;
+  height: 23px;
+  text-indent: -9000px;
+  background: url(t_fiche.gif) no-repeat;
+  margin: 0 -10px;
+}
+
+#bio h2 {
+  background-image: url(t_bio.gif);
+}
+#bio p, #bio h3, #bio ul {
+  background-color: #E2E2E2;
+  margin: 0 -10px -1px;
+  padding: 10px 10px 5px;
+}
+#bio h3 {
+  background-position: 10px .9em;
+}
+
+#fiche li{
+  background: none;
+  margin-left: 0;
+  padding-left: 0;
+  margin-bottom: 0.5em;
+  font-size: 0.9em;
+}
+
+#fiche em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+#similaires h2 {
+  background-image: url(t_similaires.gif);
+}
+
+#bio {
+ margin-bottom: -5px;
+}
+
+/*  ------------------------------------------
+/*  Page Tous les Articles
+/*  ------------------------------------------
+*/
+h1#articles {
+  background: url(t_articles.gif) no-repeat;
+  text-indent: -9000px;
+  width: 184px;
+  height: 17px;
+}
+h1#ailleurs{
+  background: url(t_tousailleurs.gif) no-repeat;
+  text-indent: -9000px;
+  width: 376px;
+  height: 17px;
+}
+
+dl.listeArticles dt {
+  font-weight: bold;
+  background: url(puce.gif) no-repeat 0 6px;
+  margin: 0 0 0.3em 15px;
+  padding-left: 15px;
+}
+dl.listeArticles dt span.auteur {
+  white-space: wrap;
+  font-weight: normal;
+  font-size: 0.9em;
+  color: #626262;
+}
+
+
+dl.listeArticles dd {
+  margin: 0 0 1.5em 30px;
+  font-size: 0.9em;
+}
+
+#tri h2 {
+  background-image: url(t_tri.gif);
+}
+
+#tri ul {
+  margin-left: -17px;
+}
+#tri a {
+  font-weight: bold;
+  text-decoration: none;
+}
+#tri ul li ul li {
+  margin: .5em auto .5em 17px;
+  line-height: 1em;
+  font-size: .75em;
+  background: transparent url(puce-tri-liste.gif) no-repeat 0 .4em;
+}
+#tri ul li ul li a {
+  margin-left: -7px;
+  font-weight: normal;
+}
+
+
+
+
+
+/*  ------------------------------------------
+/*  Autres
+/*  ------------------------------------------
+*/
+body.autre #site {
+  background-image: none;
+}
+
+#credits a {
+  color: #FFF;
+}
+
+/*  ------------------------------------------
+/*  Page Ressources
+/*  ------------------------------------------
+*/
+h1#ressources {
+  background: url(t_ressources.gif) no-repeat;
+  text-indent: -9000px;
+  width: 127px;
+  height: 20px;
+}
+
+dl.liensExternes {
+  margin-bottom: 1em;
+}
+dl.liensExternes dt {
+  margin-top: 0;
+  margin-left: 23px;
+  padding-left: 15px;
+  background: url(puce.gif) no-repeat 0 5px;
+  font-weight: bold;
+}
+
+
+/*  ------------------------------------------
+/*  Page A Propos
+/*  ------------------------------------------
+*/
+h1#apropos {
+  background: url(t_apropos.gif) no-repeat;
+  text-indent: -9000px;
+  width: 243px;
+  height: 20px;
+}
+.colophon #contenu ul {
+  -moz-column-count: 2;
+  -moz-column-gap: 1em;
+  -moz-column-rule: 1px dotted #E2E2E2;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 1em;
+  -webkit-column-rule: 1px dotted #E2E2E2;
+  column-count: 2;
+  column-gap: 1em;
+  column-rule: 1px dotted #E2E2E2;
+}
+
+
+/*  ------------------------------------------
+/*  Page Contact
+/*  ------------------------------------------
+*/
+h1#contact {
+  background: url(t_contact.gif) no-repeat;
+  text-indent: -9000px;
+  width: 185px;
+  height: 17px;
+}
+
+#contenu2 input.champ, #contenu2 textarea {
+  background: #F5F5F5 url(fondform.gif) no-repeat 0 50%;
+  border: 1px solid #B7B7B7;
+  width: 250px;
+  padding: 2px;
+  margin-bottom: 2em;
+  display: block;
+  font: 1.2em "Courier New", Courier, monospace;
+}
+
+#contenu2 textarea {
+  width: 100%;
+  height: 150px;
+}
+
+#contenu2 label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#contenu2 label.miam {
+  text-transform:none;
+  color: #CB1804;
+}
+#contenu2 p.errormsg {
+  color: #CB1804;
+  font-style:italic;
+  font-size:1.2em;
+  font-weight:bold;
+}
+
+/*  ------------------------------------------
+/*  Page Liste
+/*  ------------------------------------------
+*/
+h1#liste {
+  background: url(t_liste.gif) no-repeat;
+  text-indent: -9000px;
+  width: 201px;
+  height: 17px;
+}
+
+
+/*  ------------------------------------------
+/*  Page About
+/*  ------------------------------------------
+*/
+h1#about {
+  background: url(t_about.gif) no-repeat;
+  text-indent: -9000px;
+  width: 179px;
+  height: 17px;
+}

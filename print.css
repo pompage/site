@@ -1,0 +1,120 @@
+body {
+font-family: Georgia, "Bookman Old Style", Bookman, "New Century Schoolbook", "Bookman 
+Antiqua", Palatino, "Utopia", "New York", "Times New Roman", Times, serif;
+font-size: 12pt;
+color: #000;
+background-color: #fff;
+}
+
+#navigation, #tri, #similaires {
+display: none;
+}
+
+#header {
+display: block;
+text-align: center;
+}
+
+h1 {
+font-size: 16pt;
+font-weight: bold;
+text-align: center;
+font-family: Georgia, "Bookman Old Style", Bookman, "New Century Schoolbook", "Bookman 
+Antiqua", Palatino, "Utopia", "New York", "Times New Roman", Times, serif;
+}
+
+h2 {
+font-size: 14pt;
+}
+
+h3,h4,h5,h6 {
+font-size: 12pt;
+}
+
+ol {
+	list-style: upper-roman;
+}
+
+#article, #nouveau, #ancien {
+border-bottom: 1px solid;
+padding-bottom: 24pt;
+line-height: 16pt;
+}
+
+#article p, #nouveau p, #ancien p, #externes p {
+text-indent: 24pt;
+}
+
+.signature, #credits {
+text-align: center;
+}
+
+.signature, #nouveau h2, #externes, .listeArticles, .liensExternes, h1#ressources, h1#apropos, h1#ailleurs, h1#contact {
+border-bottom: 1px solid;
+padding-bottom: 24pt;
+}
+
+#nouveau h2, #ancien h2, #externes h2 {
+text-align: center;
+font-size: 12pt;
+}
+
+#bio h2, #fiche h2 {
+font-size: 14pt;
+}
+
+#home .auteur {
+display: block;
+font-size: 12pt;
+page-break-before: avoid !important;
+}
+
+.listeArticles dt, .liensExternes dt {
+font-weight: bold;
+margin-top: 12pt;
+}
+
+.listeArticles dd, .liensExternes dd {
+margin-left: 0;
+}
+
+pre {
+border: 1px dotted;
+padding: 12pt;
+}
+
+blockquote,q {
+font-style: italic;
+quotes: "\00AB\00A0" "\00A0\00BB" "\0022" "\0022";
+}
+
+abbr, acronym {
+border: 0;
+}
+abbr[title]:after,acronym[title]:after{
+content: " (" attr(title) ")";
+font-style: italic;
+}
+
+a {
+text-decoration : none !important;
+font-style: italic;
+color: #000;
+background-color: #fff;
+}
+
+a:after,a[hreflang]:after {
+content: " ["attr(href)"]";
+}
+
+pre, code, table { 
+page-break-inside : avoid !important; 
+}
+
+h1,h2,h3,h4,h5,h6 {
+page-break-after : avoid !important; 
+}
+
+#credits {
+page-break-before : avoid !important;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Pompage - Tous les articles</title>
+  
+<INCLURE{fond=inc_head}>
+    <style type="text/css">
+      #tri h2 {
+        text-indent: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="site">
+
+      <div id="header">
+        <a href="#URL_SITE_SPIP">Pompage - Web design puisé à la source.</a>
+      </div> <!-- fin #header -->
+
+<INCLURE{fond=inc_navigation}>
+
+      <div id="contenu2">
+
+        <h1 id="articles">Tous les articles par date</h1>
+
+        <p>Si vous ne trouvez pas ici votre bonheur, essayez aussi les <a href="/ailleurs">articles traduits ailleurs</a>. Si vous n'y trouvez <em>toujours pas</em> votre bonheur, <a href="/contact">proposez-nous un sujet de traduction&nbsp;!</a></p>
+
+<BOUCLE_annees(ARTICLES) {par date} {id_rubrique=1}{inverse}>
+        [<h2 id="annee-[(#DATE|affdate{'Y'})]" title="articles traduits durant l'année [(#DATE|affdate{'Y'})]"><a href="#menu-annee-[(#DATE|affdate{'Y'})]" title="retour à &laquo;[(#DATE|affdate{'Y'})]&raquo; dans le menu">(#DATE|annee|unique{contenu})</a></h2>]
+        <dl class="listeArticles">
+          <dt><a href="#URL_ARTICLE">#TITRE</a><span class="auteur">, par <BOUCLE_auteur(MOTS){id_article}{id_groupe=2}>#TITRE</BOUCLE_auteur>.</span></dt>
+            <dd>[(#DESCRIPTIF|pompage_strip_tags)]</dd>
+        </dl>
+</BOUCLE_annees>
+
+      </div> <!-- fin #contenu2 -->
+
+      <div id="tri">
+        <h2><img src="#CHEMIN{t_tri.gif}" alt="Trier les articles par&nbsp;:" /></h2>
+        <ul>
+          <li><a href="articles_par_date">Date de parution</a>
+            <ul>
+
+<BOUCLE_menu_dates(ARTICLES){id_rubrique=1}{par date}{inverse}>
+              [<li id="menu-annee-[(#DATE|affdate{'Y'})]"><a href="#annee-[(#DATE|affdate{'Y'})]">(#DATE|annee|unique{menu})</a></li>]
+</BOUCLE_menu_dates>
+
+            </ul>
+          </li>
+          <li><a href="articles_par_theme">Thème</a></li>
+          <li><a href="articles_par_niveau">Niveau</a></li>
+          <li><a href="articles_par_auteur">Auteur</a></li>
+        </ul>
+      </div> <!-- fin #tri -->
+
+<INCLURE{fond=footer}>
+
+    </div> <!-- fin #site -->
+  </body>
+</html>

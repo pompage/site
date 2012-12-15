@@ -1,0 +1,70 @@
+#HTTP_HEADER{Content-Type: application/atom+xml;charset=#CHARSET}
+<?xml version="1.0"[ encoding="(#CHARSET)"] ?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="#LANG">
+  <link rel="alternate" type="text/html" href="#URL_SITE_SPIP/"[ title="(#NOM_SITE_SPIP|texte_backend)"] />
+  <link rel="self" type="application/atom+xml" href="#URL_SITE_SPIP/#SELF" />
+  
+  [<title>(#NOM_SITE_SPIP|texte_backend)</title>]
+  [<id>(#URL_SITE_SPIP)/</id>]
+  [<subtitle>(#DESCRIPTIF_SITE_SPIP|texte_backend)</subtitle>]
+  <author>
+    <name>Pompage.net</name>
+  </author>
+  <rights>Copyright 2001-[(#DATE|annee)]</rights>
+  <logo>http://www.pompage.net/IMG/gif/p02.gif</logo>
+  
+  <updated><BOUCLE_date_du_dernier_article(ARTICLES){par date}{inverse}{0,1}{id_rubrique=1}>[(#DATE|date_iso|trim{Z})+02:00]</BOUCLE_date_du_dernier_article></updated>
+  <generator uri="http://www.spip.net/" version="#SPIP_VERSION">SPIP #SPIP_VERSION</generator>
+
+	<BOUCLE_brevessel(BREVES){!par date}{0,10}{id_rubrique=1}{doublons sel} />
+
+	<BOUCLE_articles(ARTICLES){!par date}{0,10}{id_rubrique=1}>
+		<BOUCLE_breves(BREVES){!par date}{date>#DATE}{!doublons sel}{doublons}>
+			<entry>
+				<title type="html">Traduit ailleurs : [(#TITRE|texte_backend)]</title>
+				<link rel="alternate" type="text/html" href="#LIEN_URL" />
+				<id>tag:www.pompage.net,[(#DATE|annee)]:breve-#ID_BREVE</id>
+				<published>[(#DATE|date_iso|trim{Z})+02:00]</published>
+				<updated>[(#DATE|date_iso|trim{Z})+02:00]</updated>
+				<summary type="html">[(#TEXTE|texte_backend)]</summary>
+				<author><name><BOUCLE_auteur_b(MOTS) {id_breve} {id_groupe=2}>[(#TITRE|texte_backend)]</BOUCLE_auteur_b></name></author>
+				#SET{cat_scheme,''}#SET{cat_term,''}
+				<BOUCLE_breves_cat(MOTS){id_breve} {id_groupe=1}> #SET{cat_scheme,#GET{cat_scheme}|concat{' ',#URL_SITE_SPIP,'/articles_par_theme'}}
+					#SET{cat_term,#GET{cat_term}|concat{' ',#TITRE}}
+				</BOUCLE_breves_cat>
+				[<category term="[(#GET{cat_term}|trim|texte_backend)]" label="[(#GET{cat_term}|trim|texte_backend)]" scheme="(#GET{cat_scheme}|trim|texte_backend)" />]</B_breves_cat>
+			</entry>
+		</BOUCLE_breves>
+		<entry>
+			<title type="html">[(#TITRE|texte_backend)]</title>
+			<link rel="alternate" type="text/html" href="[(#URL_ARTICLE|url_absolue)]" />
+			<id>tag:www.pompage.net,[(#DATE|annee)]:article-#ID_ARTICLE</id>
+			<published>[(#DATE|date_iso|trim{Z})+02:00]</published>
+			<updated>[(#DATE|date_iso|trim{Z})+02:00]</updated>
+			<summary type="html">[(#INTRODUCTION|texte_backend)]</summary>
+			<author><name><BOUCLE_auteur(MOTS) {id_article} {id_groupe=2}>[(#TITRE|texte_backend)]</BOUCLE_auteur></name></author>
+			#SET{cat_scheme,''}#SET{cat_term,''}
+			<BOUCLE_articles_cat(MOTS){id_article} {id_groupe=1}> #SET{cat_scheme,#GET{cat_scheme}|concat{' ',#URL_SITE_SPIP,'/articles_par_theme'}}
+				#SET{cat_term,#GET{cat_term}|concat{' ',#TITRE}}
+			</BOUCLE_articles_cat>
+			[<category term="[(#GET{cat_term}|trim|texte_backend)]" label="[(#GET{cat_term}|trim|texte_backend)]" scheme="(#GET{cat_scheme}|trim|texte_backend)" />]</B_articles_cat>
+		</entry>
+	</BOUCLE_articles>
+	<BOUCLE_brevesfin(BREVES){!par date}{!doublons sel}{doublons}>
+		<entry>
+			<title type="html">Traduit ailleurs : [(#TITRE|texte_backend)]</title>
+			<link rel="alternate" type="text/html" href="#LIEN_URL" />
+			<id>tag:www.pompage.net,[(#DATE|annee)]:breve-#ID_BREVE</id>
+			<published>[(#DATE|date_iso|trim{Z})+02:00]</published>
+			<updated>[(#DATE|date_iso|trim{Z})+02:00]</updated>
+			<summary type="html">[(#TEXTE|texte_backend)]</summary>
+			<author><name><BOUCLE_auteur_bfin(MOTS) {id_breve} {id_groupe=2}>[(#TITRE|texte_backend)]</BOUCLE_auteur_bfin></name></author>
+			#SET{cat_scheme,''}#SET{cat_term,''}
+			<BOUCLE_breves_catfin(MOTS){id_breve} {id_groupe=1}> #SET{cat_scheme,#GET{cat_scheme}|concat{' ',#URL_SITE_SPIP,'/articles_par_theme'}}
+				#SET{cat_term,#GET{cat_term}|concat{' ',#TITRE}}
+			</BOUCLE_breves_catfin>
+			[<category term="[(#GET{cat_term}|trim|texte_backend)]" label="[(#GET{cat_term}|trim|texte_backend)]" scheme="(#GET{cat_scheme}|trim|texte_backend)" />]</B_breves_catfin>
+		</entry>
+	</BOUCLE_brevesfin>
+
+</feed>

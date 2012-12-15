@@ -1,0 +1,66 @@
+#HTTP_HEADER{HTTP/1.0  #ENV{code,'404 Not Found'}}
+#HTTP_HEADER{"Cache-Control: no-store, no-cache, must-revalidate"}
+#HTTP_HEADER{Pragma: no-cache}
+#CACHE{5}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Pompage - Non trouvé ! (Erreur 404)</title>
+    
+    <meta name="robots" content="noindex, follow" />
+  
+<INCLURE{fond=inc_head}>
+  </head>
+
+  <body id="plan">
+    <div id="site">
+
+      <div id="header">
+        <a href="#URL_SITE_SPIP">Pompage - Web design puisé à la source.</a>
+      </div> <!-- fin #header -->
+
+      <div id="contenu">
+
+				#SET{rand,#ENV{ma404,#VAL{0}|rand{3}}}
+				[(#GET{rand}|=={0}|oui)
+				<h1>[(#CHEMIN{404-boussole.jpg}|balise_img)]Page non trouvée</h1>
+				<p>
+				<q>Là, c'est sûr&nbsp;: pour être perdus, on est bien perdus</q> (David Livingstone).</p>
+				]
+				[(#GET{rand}|=={1}|oui)
+				<h1>[(#CHEMIN{404-lost_property2.jpg}|balise_img)]Page non trouvée</h1>
+				<p>
+				<q>Forcément, ça devait arriver, ils ont tout rangé n'importe comment, ils sont pas soigneux ces gamins</q> (une maman de pompeur).</p>
+				]
+				[(#GET{rand}|=={2}|oui)
+				<h1>[(#CHEMIN{404-tuyaux2.jpg}|balise_img)]Page non trouvée</h1>
+				<p>
+				<q>Bon alors je vous résume, hein&nbsp;: Y'a l'injecteur qui a encrassé le compteur du bas. Alors forcément celui du haut a fait de la surpression, et puis alors la grille a fait PSCHOUTTT, et du coup y'a ce qu'on appelle dans notre jargon technique une 404, quoi.</q> (Lucien, plombier chez Pompage).</p>
+				]
+				[(#GET{rand}|=={3}|oui)
+				<h1>[(#CHEMIN{404-narghile.jpg}|balise_img)]Page non trouvée</h1>
+				<p>
+				Pour une raison ou pour une autre, la page ou le document que vous cherchez n'existe pas. Nous aurions pu vous dire que nous étions en train de le chercher, ou que ce sont des djinns qui ont fait le coup, mais non&nbsp;: ç'aurait été, comment dire&nbsp;? Fumeux.</p>
+				]
+
+
+        <h2>La page demandée est introuvable ou momentanément indisponible.</h2>
+        <p>Veuillez utiliser le plan ci-dessous  pour naviguer dans le site.</p>
+        <p>Si ce problème est récurrent, merci de nous contacter via la page <a href="/contact">Contact</a>.</p>
+
+        <ul>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/articles">Tous les articles</a></li>
+          <li><a href="/ressources">Ressources</a></li>
+          <li><a href="/colophon">À propos</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+
+      </div> <!-- fin #contenu -->
+<INCLURE{fond=footer}{page=404}>
+    </div> <!-- fin #site -->
+  </body>
+</html>
