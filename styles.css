@@ -112,7 +112,13 @@ body {
 #une, #article, #contenu2 {
   float: left;
   width: 430px;
-  margin-top: 0px;
+  margin-top: 0;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
 }
 /*
 #nouveau h2 {
