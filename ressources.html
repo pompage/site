@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  <title>Pompage - Ressources</title>
+  
+<INCLURE{fond=inc_head}>
+</head>
+
+<body class="autre">
+<div id="site">
+
+<div id="header">
+<a href="#URL_SITE_SPIP">Pompage - Web design puisé à la source.</a>
+</div> <!-- fin #header -->
+
+<INCLURE{fond=inc_navigation}>
+
+<div id="contenu">
+
+<h1 id="ressources">Ressources en français</h1>
+
+<BOUCLE_themes(MOTS){id_groupe=4}{par titre}>
+<B_liste>
+<h2>#TITRE</h2>
+<dl class="liensExternes">
+    <BOUCLE_liste(SITES){par nom_site}{id_mot}>
+        <dt><a href="#URL_SITE">#NOM_SITE</a></dt>
+        <dd>#DESCRIPTIF</dd>
+    </BOUCLE_liste>
+</dl>
+</B_liste>
+</BOUCLE_themes>
+</div> <!-- fin #contenu -->
+
+
+
+<INCLURE{fond=footer}>
+
+
+
+</div> <!-- fin #site -->
+</body>
+</html>

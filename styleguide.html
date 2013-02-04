@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<BOUCLE_article_principal(ARTICLES) {id_article}{id_rubrique=3}{id_article!=108}{id_article!=13}>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
+<title>POMPAGE - guide de style - [(#TITRE|textebrut)]</title>
+[
+<style type="text/css">
+<!--
+
+(#CSS)
+
+-->
+</style>
+]
+
+[
+<script type="text/javascript">
+<!--
+
+(#JS)
+
+//-->
+</script>
+]
+
+[<meta name="description" content="(#META_DESCRIPTION|attribut_html)" />]
+[<meta name="keywords" content="(#META_KEYWORDS|attribut_html)" />]
+  
+<INCLURE{fond=inc_head}>
+</head>
+
+<body>
+<div id="site">
+
+<div id="header">
+<a href="#URL_SITE_SPIP">POMPAGE - Web design puisé à la source.</a>
+</div> <!-- fin #header -->
+
+<INCLURE{fond=inc_navigation}>
+
+<div id="article">
+
+<h1>#TITRE</h1>
+[<div class="moreInfo">(#CHAPO*)</div>]
+#TEXTE
+
+[<div class="moreInfo">(#PS*)</div>]
+</div> <!-- fin #article -->
+
+
+<div id="fiche">
+<h2>Fiche technique</h2>
+<ul>
+
+<B_traducteur>
+<li><em>Auteur&#160;:</em>
+<BOUCLE_traducteur(AUTEURS) {id_article}{", "}>[<a href="(#URL_SITE)" title="#NOM, site personnel">]#NOM[</a><!-- (#URL_SITE) -->]</BOUCLE_traducteur>
+</li>
+</B_traducteur>
+
+<li><em>Lire aussi&#160;:</em>
+  <ul>
+  <BOUCLE_lire_aussi(ARTICLES){id_rubrique=3}{id_article!=108}{id_article!=13}>
+    <li><a href="styleguide.php?id_article=#ID_ARTICLE">#TITRE</a></li>
+  </BOUCLE_lire_aussi>
+  </ul>
+</li>
+</ul>
+</div> <!-- fin #fiche -->
+
+<INCLURE{fond=footer}>
+
+</div> <!-- fin #site -->
+
+</body>
+</html>
+
+
+</BOUCLE_article_principal>
+<:aucun_article:>
+<//B_article_principal>
