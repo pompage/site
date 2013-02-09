@@ -3,115 +3,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-    <title>Pompage.net — À propos</title>
-
-<INCLURE{fond=inc_head}>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Pompage.net — À propos</title>
+  <INCLURE{fond=inc_head}>
 </head>
 
 <body class="autre colophon">
-<div id="site">
+  <div id="site">
 
-<div id="header">
-<a href="#URL_SITE_SPIP">Pompage — Web design puisé à la source.</a>
-</div> <!-- fin #header -->
+    <div id="header">
+      <a href="#URL_SITE_SPIP">Pompage — Web design puisé à la source.</a>
+    </div> <!-- fin #header -->
 
-<INCLURE{fond=inc_navigation}>
+    <INCLURE{fond=inc_navigation}>
 
-<div id="contenu">
+    <div id="contenu">
+      <BOUCLE_equipe(ARTICLES) {id_article=323}>
+        #TEXTE
+      </BOUCLE_equipe>
+    </div> <!-- fin #contenu -->
 
-<h1 id="apropos">À propos de Pompage</h1>
-<p>Pompage a été créé en 2001 par <a href="http://climbtothestars.org/">Stephanie Booth</a> pour répondre à un besoin évident parmi la communauté francophone du web design&#160;: rattraper un retard important en matière de connaissance des dernières techniques. Encore aujourd'hui, nombreux sont ceux qui n'ont pas encore découvert le vrai potentiel de <abbr title="Cascading Style Sheets">CSS</abbr> et du <abbr title="HyperText Markup Language">HTML</abbr>, l'avantage d'appliquer les standards web, ou les bénéfices des pages sémantiques.</p>
-<p>Désormais les ressources en langue anglaise abondent. La mission de Pompage est de traduire suffisamment d'articles pour établir une base de connaissances conséquente en français. Toutes les traductions de ces articles sont publiées avec l'autorisation de leurs auteurs et/ou de ceux qui en gérent les droits. Ce site, entièrement bénévole, s'inscrit dans une initiative plus générale à laquelle participe le projet <a href="http://openweb.eu.org/">OpenWeb</a>.</p>
+    <INCLURE{fond=footer}>
 
-<h2 id="equipe">L'équipe</h2>
-<p>Les traducteurs et relecteurs de ce magazine viennent d'horizons divers&nbsp;: professionnels indépendants ou en entreprises, étudiants, professeurs&#8230; Ils ont pourtant un point commun&nbsp;: la création web, c'est leur grande passion.</p>
-
-<ul>
-[(#REM) Templates and unknown activy
-    <li><a href="https://twitter.com/" title="machin sur Twitter">machin</a></li>
-    <li><a href="" title="Le site personnel de machin">machin</a></li>
-    <li><a href="" title="machin">machin</a></li>
-
-    <li><a title="Augustin Chassigne">Augustin Chassigne</a></li>
-    <li><a title="Tanguy Martin">Tanguy Martin</a></li>
-    <li><a title="Jérôme Pasquelin">Jérôme Pasquelin</a></li>
-    <li><a title="Bertand Keller">Bertand Keller</a></li>
-]
-    <li><a href="http://arkhi.org/" title="Le site personnel de Fabien Basmaison">Fabien Basmaison</a> (administrateur)</li>
-    <li><a href="https://twitter.com/verobouvier" title="Véronique Bouvier sur Twitter">Véronique Bouvier</a></li>
-    <li><a href="https://twitter.com/tchevengour" title="Michel Cadennes sur Twitter">Michel Cadennes</a></li>
-    <li><a href="http://blog.userland.fr/" title="Le site personnel de Goulven Champenois">Goulven Champenois</a> (administrateur)</li>
-    <li>Frédéric Chotard</li>
-    <li><a href="https://twitter.com/caslantienne" title="Nicolas Contant sur Twitter">Nicolas Contant</a></li>
-    <li><a href="https://twitter.com/nfroidure" title="Nicolas Froidure sur Twitter">Nicolas Froidure</a></li>
-    <li><a href="http://evrenkiefer.com/" title="Le site personnel d'Evren Kiefer">Evren Kiefer</a></li>
-    <li><a href="https://twitter.com/Voulf" title="Adrien Leygues sur Twitter">Adrien Leygues</a></li>
-    <li><a href="http://www.wduk.co.uk/" title="Le site personnel de Léo Ludwig">Léo Ludwig</a></li>
-    <li><a href="https://twitter.com/b_proust" title="Blandine Proust sur Twitter">Blandine Proust</a></li>
-    <li><a href="https://twitter.com/or3lie" title="Aurélie Rigouste sur Twitter">Aurélie Rigouste</a></li>
-    <li><a href="https://twitter.com/DirtyF" title="Frank Taillandier sur Twitter">Frank Taillandier</a></li>
-</ul>
-
-<h2 id="previously">Ils sont passés par là</h2>
-<ul>
-    <li><a href="http://pouipouidesign.net/" title="Le site personnel de Marie Alhomme">Marie Alhomme</a></li>
-    <li><a href="http://freelancis.com/" title="Le site personnel de Gaspard Beernaert">Gaspard Beernaert</a></li>
-    <li><a href="http://climbtothestars.org/" title="Le site personnel de Stephanie Booth">Stephanie Booth</a> (direction honoraire)</li>
-    <li><a href="http://ac-graphic.net/" title="Le site personnel d'Antoine Cailliau">Antoine Cailliau</a></li>
-    <li><a href="http://nota-bene.org/" title="Le site personnel de Stéphane Deschamps">Stéphane Deschamps</a></li>
-    <li>Jean‑Rémy Duboc</li>
-    <li><a href="http://www.la-grange.net/" title="Le site personnel de Karl Dubost">Karl Dubost</a></li>
-    <li><a href="http://pierre.equoy.free.fr/" title="Le site personnel de Pierre Equoy">Pierre Equoy</a> (administrateur)</li>
-    <li><a href="http://log.istique.net/" title="Le site personnel de Steve Frécinaux">Steve Frécinaux</a></li>
-    <li>Renaud Gaudin</li>
-    <li><a href="http://phiji.fr/" title="Le site personnel de Philippe Janvier">Philippe Janvier</a></li>
-    <li><a href="http://mammouthland.net/" title="Le site personnel de Pascale Lambert-Charreteur">Pascale Lambert‑Charreteur</a></li>
-    <li><a href="http://latchman.org/" title="Le site personnel de Samuel Latchman">Samuel Latchman</a></li>
-    <li>Pierre‑Henri Lavigne</li>
-    <li>Sylvain Lelièvre</li>
-    <li><a href="http://nicoblog.net/" title="Le site personnel de Nicolas Nutten">Nicolas Nutten</a></li>
-    <li>Samuel Rossetti</li>
-    <li>Fay Sainte‑Rose</li>
-    <li>Ismaël Touama</li>
-    <li>Frédéric Valentin</li>
-    <li>Jean‑Denis Vauguet</li>
-    <li>Cathy Weber</li>
-</ul>
-
-<h2 id="participez" lang="en">The Francophonie needs you!</h2>
-<p>Vous maîtrisez le français, vous êtes parfaitement à l'aise en anglais, et après des milliers d'heures à farfouiller sur le net vous commencez à avoir une bonne maîtrise de ces techniques qu'on dit standards&#8230; Vous êtes un privilégié&nbsp;! Pourquoi ne pas faire un peu de bien autour de vous&nbsp;? <strong><a href="/contact">Rejoignez notre équipe&nbsp;!</a></strong></p>
-
-<p>Si vous préférez <strong>communiquer sur pompage</strong> plutôt que de participer aux traductions, vous pouvez utiliser ces bandeaux sur votre site !</p>
-
-<dl>
-  <dt><a href="http://www.pompage.net/" title="pompage.net : web design à la source"><img src="http://www.pompage.net/IMG/gif/p01.gif" alt="" width="243" height="60" /></a></dt>
-    <dd>Code à insérer sur votre site pour l’image 1 :
-      <br /><code>&lt;a href=&quot;http://www.pompage.net/&quot; title=&quot;pompage.net : web design à la source&quot;&gt;&lt;img src=&quot;http://www.pompage.net/IMG/gif/p01.gif&quot; alt=&quot;&quot; width=&quot;243&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;</code></dd>
-  <dt><a href="http://www.pompage.net/" title="pompage.net : web design à la source"><img src="http://www.pompage.net/IMG/gif/p02.gif" alt="" width="243" height="60" /></a></dt>
-    <dd>Code à insérer sur votre site pour l’image 2 :
-      <br /><code>&lt;a href=&quot;http://www.pompage.net/&quot; title=&quot;pompage.net : web design à la source&quot;&gt;&lt;img src=&quot;http://www.pompage.net/IMG/gif/p02.gif&quot; alt=&quot;&quot; width=&quot;243&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;</code></dd>
-  <dt><a href="http://www.pompage.net/" title="pompage.net : web design à la source"><img src="http://www.pompage.net/IMG/gif/p03.gif" alt="" width="243" height="60" /></a></dt>
-    <dd>Code à insérer sur votre site pour l’image 3 :
-      <br /><code>&lt;a href=&quot;http://www.pompage.net/&quot; title=&quot;pompage.net : web design à la source&quot;&gt;&lt;img src=&quot;http://www.pompage.net/IMG/gif/p03.gif&quot; alt=&quot;&quot; width=&quot;243&quot; height=&quot;60&quot; /&gt;&lt;/a&gt;</code></dd>
-</dl>
-
-
-
-<h2 id="colophon">Colophon</h2>
-<p><img src="http://www.nursit.com/local/cache-vignettes/L236xH87/siteon0-e5814.png" height="24" alt="" />
-<br />L'hébergement est gracieusement offert par <a href="http://nursit.com/" title="Nursit - Un hébergement douillet pour SPIP">Nursit.com</a>.</p>
-<p>Pompage a été assemblé à la main dans un éditeur de texte très quelconque. Aucun tableau n'a été blessé pendant le montage. D'ailleurs, aucun tableau n'a seulement été utilisé. Les pages ont été développées en <abbr>XHTML</abbr> 1.0 Strict et <abbr>CSS</abbr> 2. Les articles sont administrés à l'aide de <a href="http://spip.net/fr"><acronym title="Système de publication pour l'internet">SPIP</acronym></a>.</p>
-
-</div> <!-- fin #contenu -->
-
-
-
-<INCLURE{fond=footer}>
-
-
-
-</div> <!-- fin #site -->
-</body>
-</html>
+  </div> <!-- fin #site -->
+</body></html>
