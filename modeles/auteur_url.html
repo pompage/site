@@ -4,7 +4,7 @@
 ][(#REM)
   Modele <auteur_url|nom=NOM> : affiche le nom d’un auteur avec un lien vers son site web
   #MODELE{auteur_url}
-]<BOUCLE_auteur(AUTEURS) {nom=#ENV{nom}}>
+]<BOUCLE_auteur(AUTEURS) {nom=#ENV{nom}} {tout}>
   <a class="vcard url fn" [href="(#URL_SITE|attribut_html)"] [title="(#NOM_SITE|attribut_html)"]>#NOM</a>
 </BOUCLE_auteur>
 #ENV{nom}
