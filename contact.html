@@ -1,44 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-<!-- fichier de contact du plugin -->
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Pompage - Contact</title>
-    <link rel="stylesheet" type="text/css" href="#CHEMIN{styles.css}" />
-</head>
+<!DOCTYPE html>
+<html lang="fr"><head>
+  <meta charset="utf-8" />
+  <title>Pompage - Contact</title>
+  <link rel="stylesheet" type="text/css" href="#CHEMIN{styles.css}" />
+</head><body>
+  <div id="site">
+    <div id="header">
+    <a href="#URL_SITE_SPIP">#NOM_SITE</a>
+  </div><!-- #header -->
 
-<body >
-<div id="site">
+  <INCLURE{fond=inc_navigation}>
 
-<div id="header">
-<a href="#URL_SITE_SPIP">#NOM_SITE</a>
-</div> <!-- fin #header -->
+  <div id="contenu2">
+    <BOUCLE_contact(ARTICLES) {id_article=331}>
+      <h1 id="contact">#TITRE</h1>
 
-<INCLURE{fond=inc_navigation}>
+      #TEXTE
 
-<div id="contenu2">
+      <div class="ajax">
+        #FORMULAIRE_ECRIRE_AUTEUR
+      </div>
+    </BOUCLE_contact>
 
-<h1 id="contact">Contactez-nous</h1>
+  </div><!-- #contenu -->
 
-<p>
-  Pour nous signaler des erreurs ou coquilles, pour proposer des articles ou sujets que vous aimeriez voir traités, merci de contacter la rédaction via <a href="http://twitter.com/pompeurs" title="notre compte pompeurs sur Twitter">@pompeurs</a> ou <a href="mailto:marvin%40pompage.net">par e-mail</a>.
-</p>
-<p>
-  <strong>Si vous avez des questions concernant <abbr>CSS</abbr>, JavaScript, ou d'autres sujets traités ici, contactez la <a href="/liste">liste de discussion</a>&nbsp;!</strong>
-</p>
-<p>
-  Nous ne sommes pas intéressés par des échanges de liens, partenariats ni articles sponsorisés.
-</p>
+  <INCLURE{fond=footer}>
 
-<p lang="en">(You can also write in English.)</p>
-
-</div> <!-- fin #contenu -->
-
-
-<INCLURE{fond=footer}>
-
-
-</div> <!-- fin #site -->
-</body>
-</html>
+  </div><!-- #site -->
+</body></html>
