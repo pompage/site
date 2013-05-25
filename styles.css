@@ -488,7 +488,7 @@ tt {
 /* ajout de Fabien: 20090901 */
   text-indent: 17px;
 }
-/* suppression de Fabien: 20090901 
+/* suppression de Fabien: 20090901
 p.moreInfo {
   text-indent: 17px;
 }*/
@@ -531,6 +531,7 @@ q {
 cite {
   font-style: italic;
 }
+
 /* ancre back to top */
 #contenu2 h2 a {
   color: #CB1804;
@@ -728,7 +729,7 @@ h1#contact {
   height: 17px;
 }
 
-#contenu2 input.champ, #contenu2 textarea {
+.formulaire_ecrire_auteur input.text, .formulaire_ecrire_auteur textarea {
   background: #F5F5F5 url(fondform.gif) no-repeat 0 50%;
   border: 1px solid #B7B7B7;
   width: 250px;
@@ -738,21 +739,21 @@ h1#contact {
   font: 1.2em "Courier New", Courier, monospace;
 }
 
-#contenu2 textarea {
+.formulaire_ecrire_auteur textarea {
   width: 100%;
   height: 150px;
 }
 
-#contenu2 label {
+.formulaire_ecrire_auteur label {
   font-weight: bold;
   text-transform: uppercase;
 }
 
-#contenu2 label.miam {
+.formulaire_ecrire_auteur label.miam {
   text-transform:none;
   color: #CB1804;
 }
-#contenu2 p.errormsg {
+.formulaire_ecrire_auteur p.errormsg {
   color: #CB1804;
   font-style:italic;
   font-size:1.2em;

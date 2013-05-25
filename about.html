@@ -6,7 +6,7 @@
 
   <INCLURE{fond=inc_head}>
 
-</head><body class="autre">
+</head><body>
 
   <div id="site">
     <div id="header">
@@ -15,14 +15,16 @@
 
     <INCLURE{fond=inc_navigation}>
 
-    <div id="contenu" lang="en">
-      <h1 id="about">About Pompage</h1>
+    <div id="contenu2" lang="en">
+      <BOUCLE_contact(ARTICLES) {id_article=330}>
+        <h1 id="about">#TITRE</h1>
 
-      <p>Pompage magazine was founded by Swiss alpha blogger <a href="http://climbtothestars.org/" title="Stephanie's personal web site" hreflang="en">Stephanie Booth</a> around 2001. Back then, web standards awareness was low in the English-speaking community, and almost inexistent in the French-speaking community. But, mostly in the USA, pionniers were starting to write about standards and modern techniques, educating professionals and amateurs alike. France was lagging behind, so a handful of people decided to start projects on their own. Pompage was one of them.</p>
+        #TEXTE
 
-      <p>Pompage is specifically dedicated to translating English resources because, although a lot better than in 2001, the French knowledge base still needs to grow. In the biggest web agencies, not enough people have heard of names like Jeffrey Zeldman or Eric Meyer. Our translated articles hopefully help fill the gap by bringing those names and their expertise to the French eyes.</p>
-
-      <p>All the  <a href="/articles">articles</a> on this site are copyrighted by their authors and are translated with their authorization. For any information, please contact the editors using our <a href="/contact">Contact page</a>.</p>
+        <div class="ajax">
+          #FORMULAIRE_ECRIRE_AUTEUR
+        </div>
+      </BOUCLE_contact>
     </div><!-- #contenu -->
 
     <INCLURE{fond=footer}>
