@@ -74,9 +74,19 @@
           <B_traducteur>
             <li>
               <em>Traduction&#160;:</em>
-          <BOUCLE_traducteur(AUTEURS) {id_article}{", "}>
+          <BOUCLE_traducteur(AUTEURS) {id_article}{role IN redacteur,traducteur}{", "}>
               [<a href="(#URL_SITE)" title="#NOM, site personnel">]#NOM[</a><!-- (#URL_SITE) -->]</BOUCLE_traducteur>
             </li>
+
+          <B_relecteur>
+            <li>
+              <em>Relecture&#160;:</em>
+              <BOUCLE_relecteur(AUTEURS) {id_article}{role=relecteur}{", "}>
+                [<a href="(#URL_SITE)" title="#NOM, site personnel">]#NOM[</a><!-- (#URL_SITE) -->]</BOUCLE_relecteur>
+            </li>
+          </B_relecteur>
+
+
           </B_traducteur>[
           <li><em>Date de traduction&#160;:</em> (#DATE|nom_mois)] [(#DATE|annee)</li>]
           <B_themes>
