@@ -1,20 +1,25 @@
 <p id="credits">
-  © 2001-[(#DATE|annee)] Pompage Magazine et les auteurs originaux - 
-  Hébergé chez <a href="http://nursit.com/" title="Nursit - Un hébergement douillet pour SPIP">Nursit.com</a>&nbsp;! - 
-  <a href="/rss"><abbr>RSS</abbr></a> / 
-  <a href="/atom"><abbr>ATOM</abbr></a> - 
+  © 2001-[(#DATE|annee)] Pompage Magazine et les auteurs originaux -
+  Hébergé chez <a href="http://nursit.com/" title="Nursit - Un hébergement douillet pour SPIP">Nursit.com</a>&nbsp;! -
+  <a href="/rss"><abbr>RSS</abbr></a> /
+  <a href="/atom"><abbr>ATOM</abbr></a> -
   <a href="/about">About this site</a></p>
-  <!-- Piwik -->
+
+<!-- Piwik -->
 <script type="text/javascript">
-var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.pompage.net/" : "http://stats.pompage.net/");
-document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script type="text/javascript">
-try {
-var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);[
-piwikTracker.setDocumentTitle('404/'+String(document.location.pathname+document.location.search).replace(/\//g,"%2F") + '/'+String(document.referrer).replace(/\//g,"%2F"));
-(#ENV{page}|=={404}|oui)]
-piwikTracker.trackPageView();
-piwikTracker.enableLinkTracking();
-} catch( err ) {}
-</script><noscript><p><img src="http://stats.pompage.net/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://stats.pompage.net/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "1"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+<noscript><p><img
+src="http://stats.pompage.net/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
 <!-- End Piwik Tracking Code -->
