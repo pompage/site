@@ -10,6 +10,8 @@
   var _paq = _paq || [];
   _paq.push(["setDomains", ["*.pompage.net"]]);
   _paq.push(["setDoNotTrack", true]);
+  [_paq.push(['setDocumentTitle', '404/URL = '+String(document.location.pathname+document.location.search).replace(/\//g,"%2f") + '/From = ' + String(document.referrer).replace(/\//g,"%2f")]);(#ENV{page}|=={404}|oui)]
+
   _paq.push(["trackPageView"]);
   _paq.push(["enableLinkTracking"]);
 
