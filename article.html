@@ -95,13 +95,13 @@
           <B_themes>
             <li>
               <em>[(#TOTAL_BOUCLE|>{1}|?{'Thèmes','Thème'})]&#160;:</em>
-          <BOUCLE_themes(MOTS) {id_article} {id_groupe=1} {", "}><a href="/articles_par_theme#theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#SET{not_attribut_html,[^0-9a-zA-Z_-]},_})]">#TITRE</a></BOUCLE_themes>
+          <BOUCLE_themes(MOTS) {id_article} {id_groupe=1} {", "}><a href="/articles_par_theme#theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_})]">#TITRE</a></BOUCLE_themes>
             </li>
           </B_themes>
           <B_niveau>
             <li>
               <em>Niveau&#160;:</em>
-          <BOUCLE_niveau(MOTS) {id_article} {id_groupe=3} {", "}><a href="/articles_par_niveau#niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{,_})]">[(#TITRE|supprimer_numero)]</a></BOUCLE_niveau>
+          <BOUCLE_niveau(MOTS) {id_article} {id_groupe=3} {", "}><a href="/articles_par_niveau#niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_})]">[(#TITRE|supprimer_numero)]</a></BOUCLE_niveau>
             </li>
           </B_niveau>
         </ul>
@@ -124,7 +124,7 @@
               </ul>
               <BOUCLE_articles_auteur(ARTICLES) {id_mot IN #GET{auteurs}} {id_article != #_article_principal:ID_ARTICLE} {par date} {inverse} {0,6} />
                 [<p>(#TOTAL_BOUCLE|>{5}|?{' ',''})
-                  [<a href="/articles_par_auteur#auteur-(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#SET{not_attribut_html,[^0-9a-zA-Z_-]}
+                  [<a href="/articles_par_auteur#auteur-(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html}
 ,_})">Voir tous les articles de l'auteur</a>]
                 </p>]
               </B_articles_auteur>
