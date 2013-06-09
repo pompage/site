@@ -37,7 +37,11 @@
       <INCLURE{fond=inc_navigation}>
 
       <div id="article">
-        <h1>#TITRE</h1>
+        <h1>
+          #TITRE[
+          <br /><small>(#SOUSTITRE)</small>]
+        </h1>
+
         <p class="signature">Par
           <BOUCLE_mot1(MOTS) {id_article} {type="Auteur"} {"et "}>
             [<a title="Le site de #TITRE." href="(#URL_AUTEUR)" hreflang="en">]#TITRE[</a>(#URL_AUTEUR|oui)]
