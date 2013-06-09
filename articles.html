@@ -3,9 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+
     <title>Pompage - Tous les articles</title>
-  
+
 <INCLURE{fond=inc_head}>
     <style type="text/css">
       #tri h2 {
@@ -32,7 +32,7 @@
 <BOUCLE_annees(ARTICLES) {par date} {id_rubrique=1}{inverse}>
         [<h2 id="annee-[(#DATE|affdate{'Y'})]" title="articles traduits durant l'année [(#DATE|affdate{'Y'})]"><a href="#menu-annee-[(#DATE|affdate{'Y'})]" title="retour à &laquo;[(#DATE|affdate{'Y'})]&raquo; dans le menu">(#DATE|annee|unique{contenu})</a></h2>]
         <dl class="listeArticles">
-          <dt><a href="#URL_ARTICLE">#TITRE</a><span class="auteur">, par <BOUCLE_auteur(MOTS){id_article}{id_groupe=2}>#TITRE</BOUCLE_auteur>.</span></dt>
+          <dt><a href="#URL_ARTICLE">#TITRE[&nbsp;: (#SOUSTITRE)]</a><span class="auteur">, par <BOUCLE_auteur(MOTS){id_article}{id_groupe=2}>#TITRE</BOUCLE_auteur>.</span></dt>
             <dd>[(#DESCRIPTIF|pompage_strip_tags)]</dd>
         </dl>
 </BOUCLE_annees>

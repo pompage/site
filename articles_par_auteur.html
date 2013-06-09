@@ -1,3 +1,4 @@
+#SET{not_attribut_html,[^0-9a-zA-Z_-]}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
@@ -27,10 +28,10 @@
 
 <BOUCLE_auteurs(MOTS){id_groupe=2}{par titre}>
   <B_liste>
-        <h2 id="auteur-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]"><a href="#menu-auteur-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]" title="retour à &laquo;#TITRE&raquo; dans le menu">#TITRE</a></h2>
+        <h2 id="auteur-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_})]"><a href="#menu-auteur-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_})]" title="retour à &laquo;#TITRE&raquo; dans le menu">#TITRE</a></h2>
         <dl class="listeArticles">
   <BOUCLE_liste(ARTICLES){par titre} {id_rubrique=1}{id_mot}>
-          <dt><a href="#URL_ARTICLE">#TITRE</a></dt>
+          <dt><a href="#URL_ARTICLE">#TITRE[&nbsp;: (#SOUSTITRE)]</a></dt>
             <dd>#DESCRIPTIF</dd>
   </BOUCLE_liste>
         </dl>
@@ -49,7 +50,7 @@
             <ul>
 <BOUCLE_menu_auteurs(MOTS){id_groupe=2}{par titre}>
   <B_menu_nom_auteur>
-              <li id="menu-auteur-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]"><a href="#auteur-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]">[(#TITRE|supprimer_numero)]</a></li>
+              <li id="menu-auteur-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_}|attribut_html)]"><a href="#auteur-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_}|attribut_html)]">[(#TITRE|supprimer_numero)]</a></li>
   <BOUCLE_menu_nom_auteur(ARTICLES){id_mot}>
   </BOUCLE_menu_nom_auteur>
 </BOUCLE_menu_auteurs>

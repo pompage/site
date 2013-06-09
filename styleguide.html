@@ -28,7 +28,7 @@
 
 [<meta name="description" content="(#META_DESCRIPTION|attribut_html)" />]
 [<meta name="keywords" content="(#META_KEYWORDS|attribut_html)" />]
-  
+
 <INCLURE{fond=inc_head}>
 </head>
 
@@ -64,7 +64,7 @@
 <li><em>Lire aussi&#160;:</em>
   <ul>
   <BOUCLE_lire_aussi(ARTICLES){id_rubrique=3}{id_article!=108}{id_article!=13}>
-    <li><a href="styleguide.php?id_article=#ID_ARTICLE">#TITRE</a></li>
+    <li><a href="styleguide.php?id_article=#ID_ARTICLE">#TITRE[&nbsp;: (#SOUSTITRE)]</a></li>
   </BOUCLE_lire_aussi>
   </ul>
 </li>

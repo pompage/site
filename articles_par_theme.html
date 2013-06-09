@@ -1,3 +1,4 @@
+#SET{not_attribut_html,[^0-9a-zA-Z_-]}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
@@ -27,11 +28,11 @@
 
 <BOUCLE_themes(MOTS){id_groupe=1}{par titre}>
   <B_liste>
-        <h2 id="theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]"><a href="#menu-theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]" title="retour à &laquo;#TITRE&raquo; dans le menu">#TITRE</a></h2>
+        <h2 id="theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_})]"><a href="#menu-theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_})]" title="retour à &laquo;#TITRE&raquo; dans le menu">#TITRE</a></h2>
         <dl class="listeArticles">
 
   <BOUCLE_liste(ARTICLES){par titre} {id_rubrique=1}{id_mot}>
-          <dt><a href="#URL_ARTICLE">#TITRE</a><span class="auteur">, par <BOUCLE_auteur(MOTS){id_article}{id_groupe=2} {" et "}>#TITRE</BOUCLE_auteur>.</span></dt>
+          <dt><a href="#URL_ARTICLE">#TITRE[&nbsp;: (#SOUSTITRE)]</a><span class="auteur">, par <BOUCLE_auteur(MOTS){id_article}{id_groupe=2} {" et "}>#TITRE</BOUCLE_auteur>.</span></dt>
             <dd>#DESCRIPTIF</dd>
   </BOUCLE_liste>
         </dl>
@@ -48,7 +49,7 @@
             <ul>
 
 <BOUCLE_menu_themes(MOTS){type=Thèmes}{par titre}>
-              <li id="menu-theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]"><a href="#theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]">[(#TITRE|supprimer_numero)]</a></li>
+              <li id="menu-theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_})]"><a href="#theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_})]">[(#TITRE|supprimer_numero)]</a></li>
 </BOUCLE_menu_themes>
 
             </ul>

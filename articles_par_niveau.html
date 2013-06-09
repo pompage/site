@@ -1,3 +1,4 @@
+#SET{not_attribut_html,[^0-9a-zA-Z_-]}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
@@ -6,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <title>Pompage - Tous les articles par niveau</title>
-    
+
 <INCLURE{fond=inc_head}>
   </head>
 
@@ -27,11 +28,11 @@
 
 <BOUCLE_niveau(MOTS){id_groupe=3}{par num titre}>
   <B_liste>
-        <h2 id="niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]"><a href="#menu-niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]" title="retour à &laquo;[(#TITRE|supprimer_numero)]&raquo; dans le menu">[(#TITRE|supprimer_numero)]</a></h2>
+        <h2 id="niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_})]"><a href="#menu-niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_})]" title="retour à &laquo;[(#TITRE|supprimer_numero)]&raquo; dans le menu">[(#TITRE|supprimer_numero)]</a></h2>
         <dl class="listeArticles">
 
     <BOUCLE_liste(ARTICLES){par titre} {id_rubrique=1}{id_mot}>
-          <dt><a href="#URL_ARTICLE">#TITRE</a><span class="auteur">, par <BOUCLE_auteur(MOTS){id_article}{id_groupe=2} {" et "}>#TITRE</BOUCLE_auteur>.</span></dt>
+          <dt><a href="#URL_ARTICLE">#TITRE[&nbsp;: (#SOUSTITRE)]</a><span class="auteur">, par <BOUCLE_auteur(MOTS){id_article}{id_groupe=2} {" et "}>#TITRE</BOUCLE_auteur>.</span></dt>
             <dd>#DESCRIPTIF</dd>
   </BOUCLE_liste>
         </dl>
@@ -49,7 +50,7 @@
             <ul>
 
 <BOUCLE_menu_niveau(MOTS){type=Niveau}{par num titre}>
-              <li id="menu-niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]"><a href="#niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]">[(#TITRE|supprimer_numero)]</a></li>
+              <li id="menu-niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_})]"><a href="#niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#GET{not_attribut_html},_})]">[(#TITRE|supprimer_numero)]</a></li>
 </BOUCLE_menu_niveau>
 
             </ul>

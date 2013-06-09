@@ -16,14 +16,14 @@
     <category>webdesign</category>
     <category>traduction</category>
     <generator>SPIP[ (#SPIP_VERSION)]</generator>
-    <ttl>3600</ttl>  
+    <ttl>3600</ttl>
 
     <image>
       [<title>(#NOM_SITE_SPIP|texte_backend)</title>]
       <url>http://www.pompage.net/IMG/gif/p02.gif</url>
       [<link>(#URL_SITE_SPIP)/</link>]
     </image>
-    
+
     <atom:link href="#URL_SITE_SPIP/rss-2.0" rel="self" type="application/rss+xml" />
 
 		<BOUCLE_brevessel(BREVES){!par date}{0,10}{id_rubrique=1}{doublons sel} />
@@ -46,7 +46,7 @@
 				</item>
 			</BOUCLE_breves>
 			<item>
-				<title>[(#TITRE|texte_backend)]</title>
+				<title>[(#TITRE|texte_backend)][&nbsp;: (#SOUSTITRE|texte_backend)]</title>
 				<link>[(#URL_ARTICLE|url_absolue)]</link>
 				<description>[(#INTRODUCTION|texte_backend)]</description>
 				<dc:format>text/html</dc:format>

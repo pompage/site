@@ -29,17 +29,17 @@
 					|image_recadre{212,21,right,transparent}
 					|extraire_attribut{src})]})]
 				<h2>[(#CHEMIN{back_derniere.png}|image_masque{#GET{titreimage},mode=normal}|inserer_attribut{alt,#GET{titre}})]</h2>
-        <h3><a href="#URL_ARTICLE">#TITRE</a><B_auteur_une> <span class="auteur">
+        <h3><a href="#URL_ARTICLE">#TITRE[&nbsp;: (#SOUSTITRE)]</a><B_auteur_une> <span class="auteur">
         par <BOUCLE_auteur_une(MOTS) {id_article} {type="Auteur"} {" et "}>#TITRE</BOUCLE_auteur_une></span></B_auteur_une></h3>
-        <p>[(#DESCRIPTIF|ptobr)] <a href="#URL_ARTICLE" title="[(#TITRE|attribut_html)]" class="plus">Lire l'article.</a></p>
+        <p>[(#DESCRIPTIF|ptobr)] <a href="#URL_ARTICLE" title="[(#TITRE|attribut_html)][ : (#SOUSTITRE|attribut_html)]" class="plus">Lire l'article.</a></p>
 </BOUCLE_nouveau_une>
       </div> <!-- fin #nouveau -->
 
 <B_annonce_une>
       <div id="annonces" class="bloc_une">
 <BOUCLE_annonce_une(ARTICLES) {id_rubrique=5} {age_redac<=0} {tout} {par date} {0,1} {inverse}>
-        <h3><a href="#URL_ARTICLE">#TITRE</a> [<strong><small>(#DATE_REDAC|date_relativecourt)&nbsp;!</small></strong> ]</h3>
-        <p>[(#DESCRIPTIF|ptobr)] <a href="#URL_ARTICLE" title="[(#TITRE|attribut_html)]" class="plus">Lire l'article.</a></p>
+        <h3><a href="#URL_ARTICLE">#TITRE[&nbsp;: (#SOUSTITRE)]</a> [<strong><small>(#DATE_REDAC|date_relativecourt)&nbsp;!</small></strong> ]</h3>
+        <p>[(#DESCRIPTIF|ptobr)] <a href="#URL_ARTICLE" title="[(#TITRE|attribut_html)][ : (#SOUSTITRE|attribut_html)]" class="plus">Lire l'article.</a></p>
 </BOUCLE_annonce_une>
       </div> <!-- fin #annonces -->
 </B_annonce_une>
@@ -47,9 +47,9 @@
       <div id="ancien" class="bloc_une">
         <h2><img src="#CHEMIN{t_precedent.gif}" alt="Éditions précédentes" width="212" height="21" /></h2>
 <BOUCLE_nouveau(ARTICLES){id_rubrique=1}{par date}{1,2}{inverse}>
-        <h3><a href="#URL_ARTICLE">#TITRE</a><B_auteur>
+        <h3><a href="#URL_ARTICLE">#TITRE[&nbsp;: (#SOUSTITRE)]</a><B_auteur>
         <span class="auteur">par <BOUCLE_auteur(MOTS) {id_article} {type="Auteur"} {" et "}>#TITRE</BOUCLE_auteur></span></B_auteur></h3>
-        <p>[(#DESCRIPTIF|ptobr)] <a href="#URL_ARTICLE" title="[(#TITRE|attribut_html)]" class="plus">Lire l'article.</a></p>
+        <p>[(#DESCRIPTIF|ptobr)] <a href="#URL_ARTICLE" title="[(#TITRE|attribut_html)][ : (#SOUSTITRE|attribut_html)]" class="plus">Lire l'article.</a></p>
 </BOUCLE_nouveau>
 <p class="plus"><a href="articles" title="Voir toutes les traductions parues sur pompage.net">Et des archives&#8230;</a></p>
       </div> <!-- fin #ancien -->

@@ -1,7 +1,7 @@
 #SET{array_rubriques, #ARRAY}
 #SET{array_rubriques, #GET{array_rubriques}|push{1}|push{5}}
 [(#AUTORISER{voir,article,#ID_ARTICLE}) #SET{array_rubriques, #GET{array_rubriques}|push{3}|push{4}}]
-
+#SET{not_attribut_html,[^0-9a-zA-Z_-]}
 <BOUCLE_article_principal(ARTICLES) {id_article} {id_rubrique IN #GET{array_rubriques}}>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -95,13 +95,13 @@
           <B_themes>
             <li>
               <em>[(#TOTAL_BOUCLE|>{1}|?{'Thèmes','Thème'})]&#160;:</em>
-          <BOUCLE_themes(MOTS) {id_article} {id_groupe=1} {", "}><a href="/articles_par_theme#theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]">#TITRE</a></BOUCLE_themes>
+          <BOUCLE_themes(MOTS) {id_article} {id_groupe=1} {", "}><a href="/articles_par_theme#theme-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#SET{not_attribut_html,[^0-9a-zA-Z_-]},_})]">#TITRE</a></BOUCLE_themes>
             </li>
           </B_themes>
           <B_niveau>
             <li>
               <em>Niveau&#160;:</em>
-          <BOUCLE_niveau(MOTS) {id_article} {id_groupe=3} {", "}><a href="/articles_par_niveau#niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})]">[(#TITRE|supprimer_numero)]</a></BOUCLE_niveau>
+          <BOUCLE_niveau(MOTS) {id_article} {id_groupe=3} {", "}><a href="/articles_par_niveau#niveau-[(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{,_})]">[(#TITRE|supprimer_numero)]</a></BOUCLE_niveau>
             </li>
           </B_niveau>
         </ul>
@@ -119,12 +119,13 @@
               <h3>[(#TOTAL_BOUCLE|>{1}|?{'Articles','Article'})] du même auteur</h3>
               <ul>
             <BOUCLE_meme_auteur(ARTICLES) {id_mot IN #GET{auteurs}} {id_article != #_article_principal:ID_ARTICLE} {par date} {inverse} {0,5}>
-                  <li><a href="#URL_ARTICLE">#TITRE</a></li>
+                  <li><a href="#URL_ARTICLE">#TITRE[&nbsp;: (#SOUSTITRE)]</a></li>
             </BOUCLE_meme_auteur>
               </ul>
               <BOUCLE_articles_auteur(ARTICLES) {id_mot IN #GET{auteurs}} {id_article != #_article_principal:ID_ARTICLE} {par date} {inverse} {0,6} />
                 [<p>(#TOTAL_BOUCLE|>{5}|?{' ',''})
-                  [<a href="/articles_par_auteur#auteur-(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{" ",_})">Voir tous les articles de l'auteur</a>]
+                  [<a href="/articles_par_auteur#auteur-(#TITRE|supprimer_numero|translitteration|corriger_caracteres|replace{#SET{not_attribut_html,[^0-9a-zA-Z_-]}
+,_})">Voir tous les articles de l'auteur</a>]
                 </p>]
               </B_articles_auteur>
             </B_meme_auteur>
@@ -137,10 +138,10 @@
           Voici la liste des dix articles les plus récents en rapport avec cet article&nbsp;:
         </p>
         <BOUCLE_similaires(MOTS) {id_article}{id_groupe!=2}{par titre}>
-          <BOUCLE_cat_mot(ARTICLES) {id_mot} {par date} {inverse} {0,10}>
+          <BOUCLE_cat_mot(ARTICLES) {id_mot} {id_article!=#ID_ARTICLE} {!par date} {0,10}>
         [   <h3>(#_similaires:TITRE|unique{menu}||supprimer_numero)</h3>]
             <ul>
-              <li><a href="#URL_ARTICLE">#TITRE</a></li>
+              <li><a href="#URL_ARTICLE">#TITRE[&nbsp;: (#SOUSTITRE)]</a></li>
             </ul>
           </BOUCLE_cat_mot>
         </BOUCLE_similaires>
