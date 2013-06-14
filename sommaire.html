@@ -60,7 +60,7 @@
       <h2><img src="#CHEMIN{t_ailleurs.gif}" alt="Traduit ailleurs" width="241" height="23" /></h2>
 <BOUCLE_ailleurs(BREVES){par date}{inverse}{0,2}>
       <h3><a href="#URL_SITE">#TITRE</a><B_auteur3>
-      <span class="auteur">par <BOUCLE_auteur3(MOTS) {id_breve} {type="Auteur"}>#TITRE</BOUCLE_auteur3></span></B_auteur3></h3>
+      <span class="auteur">par <BOUCLE_auteur3(MOTS) {id_breve} {type="Auteur"} {', '}>#TITRE</BOUCLE_auteur3></span></B_auteur3></h3>
       <p>[(#DATE|jour)]/[(#DATE|mois)]/[(#DATE|annee)]
       [ - (#TEXTE|pompage_strip_tags)]
       <a href="#URL_SITE" title="[(#TITRE|attribut_html)]" class="plus">Vers l'article&#8230;</a></p>
