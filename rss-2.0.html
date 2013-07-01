@@ -1,11 +1,11 @@
-#HTTP_HEADER{Content-Type: text/rss+xml; charset=#CHARSET}
+#HTTP_HEADER{Content-Type: application/rss+xml; charset=#CHARSET}
 <?xml version="1.0"[ encoding="(#CHARSET)"] ?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
 
   <channel>
     [<title>(#NOM_SITE_SPIP|texte_backend)</title>]
     [<link>(#URL_SITE_SPIP)/</link>]
-    [<description>(#DESCRIPTIF_SITE_SPIP|texte_backend)</description>]
+    [<description>(#DESCRIPTIF_SITE_SPIP|supprimer_tags|texte_backend)</description>]
     [<language>(#LANG)</language>]
     <copyright>Copyright 2001-[(#DATE|annee)], pompage.net</copyright>
 
@@ -31,7 +31,7 @@
 		<BOUCLE_articles(ARTICLES){!par date}{0,10}{id_rubrique=1}>
 			<BOUCLE_breves(BREVES){!par date}{date>#DATE}{!doublons sel}{doublons}>
 				<item>
-					<title>Traduit ailleurs : [(#TITRE|texte_backend)]</title>
+					<title>Traduit ailleurs&#160;: [(#TITRE|texte_backend)]</title>
 					<link>#LIEN_URL</link>
 					<description>[(#TEXTE|texte_backend)]</description>
 					<dc:format>text/html</dc:format>
@@ -46,7 +46,7 @@
 				</item>
 			</BOUCLE_breves>
 			<item>
-				<title>[(#TITRE|texte_backend)][&nbsp;: (#SOUSTITRE|texte_backend)]</title>
+				<title>[(#TITRE|texte_backend)][&#160;: (#SOUSTITRE|texte_backend)]</title>
 				<link>[(#URL_ARTICLE|url_absolue)]</link>
 				<description>[(#INTRODUCTION|texte_backend)]</description>
 				<dc:format>text/html</dc:format>
@@ -62,7 +62,7 @@
 		</BOUCLE_articles>
 		<BOUCLE_brevesfin(BREVES){!par date}{!doublons sel}{doublons}>
 		<item>
-			<title>Traduit ailleurs : [(#TITRE|texte_backend)]</title>
+			<title>Traduit ailleurs&#160;: [(#TITRE|texte_backend)]</title>
 			<link>#LIEN_URL</link>
 			<description>[(#TEXTE|texte_backend)]</description>
 			<dc:format>text/html</dc:format>

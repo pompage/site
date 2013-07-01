@@ -5,7 +5,7 @@
   <channel>
     <title>[(#NOM_SITE_SPIP|texte_backend)]</title>
     [<link>(#URL_SITE_SPIP)/</link>]
-    [<description>(#DESCRIPTIF_SITE_SPIP|texte_backend)</description>]
+    [<description>(#DESCRIPTIF_SITE_SPIP|supprimer_tags|texte_backend)</description>]
     [<language>(#LANG)</language>]
 
     <image>
@@ -19,20 +19,20 @@
 		<BOUCLE_articles(ARTICLES){!par date}{0,10}{id_rubrique=1}>
 			<BOUCLE_breves(BREVES){!par date}{date>#DATE}{!doublons sel}{doublons}>
 				<item>
-					<title>Traduit ailleurs : [(#TITRE|texte_backend)]</title>
+					<title>Traduit ailleurs&#160;: [(#TITRE|texte_backend)]</title>
 					<link>#LIEN_URL</link>
 					<pubDate>[(#DATE|affdate{"r"})]</pubDate>
-					<description>[(#TEXTE|texte_backend)]</description>
+					<description>[(#TEXTE|supprimer_tags|texte_backend)]</description>
 					<dc:format>text/html</dc:format>
 					<dc:language>[(#LANG)]</dc:language>
 					<dc:creator><BOUCLE_auteur_b(MOTS) {id_breve} {id_groupe=2}>[(#TITRE|texte_backend)]</BOUCLE_auteur_b></dc:creator>
 				</item>
 			</BOUCLE_breves>
 			<item>
-				<title>[(#TITRE|texte_backend)][&nbsp;: (#SOUSTITRE|texte_backend)]</title>
+				<title>[(#TITRE|texte_backend)][&#160;: (#SOUSTITRE|texte_backend)]</title>
 				<link>[(#URL_ARTICLE|url_absolue)]</link>
 				<pubDate>[(#DATE|affdate{"r"})]</pubDate>
-				<description>[(#INTRODUCTION|texte_backend)]</description>
+				<description>[(#INTRODUCTION|supprimer_tags|texte_backend)]</description>
 				<dc:format>text/html</dc:format>
 				<dc:language>[(#LANG)]</dc:language>
 				<dc:creator><BOUCLE_auteur(MOTS) {id_article} {id_groupe=2}>[(#TITRE|texte_backend)]</BOUCLE_auteur></dc:creator>
@@ -40,10 +40,10 @@
 		</BOUCLE_articles>
 		<BOUCLE_brevesfin(BREVES){!par date}{!doublons sel}{doublons}>
 		<item>
-			<title>Traduit ailleurs : [(#TITRE|texte_backend)]</title>
+			<title>Traduit ailleurs&#160;: [(#TITRE|texte_backend)]</title>
 			<link>#LIEN_URL</link>
 			<pubDate>[(#DATE|affdate{"r"})]</pubDate>
-			<description>[(#TEXTE|texte_backend)]</description>
+			<description>[(#TEXTE|supprimer_tags|texte_backend)]</description>
 			<dc:format>text/html</dc:format>
 			<dc:language>[(#LANG)]</dc:language>
 			<dc:creator><BOUCLE_auteur_bfin(MOTS) {id_breve} {id_groupe=2}>[(#TITRE|texte_backend)]</BOUCLE_auteur_bfin></dc:creator>
