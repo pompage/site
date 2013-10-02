@@ -186,13 +186,19 @@ RewriteRule ^favicon[.]ico$      spip.php?page=favicon.ico [QSA,L]
 RewriteRule ^sitemap[.]xml$      spip.php?page=sitemap.xml [QSA,L]
 ##
 
-# expirer les images (pour contourner gros bug MSIE sur le cache)
-# note : a decommenter si vous voulez tester
+# expirer les images (cache)                                     
 <IfModule mod_expires.c>
   ExpiresActive on
-# ExpiresByType image/gif A3600
-# ExpiresByType image/jpeg A3600
-# ExpiresByType image/png A3600
+  ExpiresByType image/gif A3600
+  ExpiresByType image/jpeg A3600
+  ExpiresByType image/png A3600
+  ExpiresByType image/x-icon A86400
+  ExpiresByType application/x-javascript A86400
+  ExpiresByType application/javascript A86400
+  ExpiresByType text/css A86400
+  <FilesMatch "\.(ttf|otf|eot|svg|woff)$" >
+    ExpiresDefault A86400
+  </FilesMatch>
 
   <FilesMatch "prive/themes/[^/]+/images/.+\.(png|gif|jpg)$" >
     ExpiresDefault A86400
