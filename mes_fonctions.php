@@ -13,6 +13,33 @@ function pompage_strip_tags($str) {
 }
 
 /**
+* Affiche le copyright correspondant à l’article traduit
+* @param string $url L’URL de l’article original
+* @return string Chaîne fournie par l’auteur ou l’éditeur
+*/
+function copyright($url) {
+  $copyright = '';
+
+  $url_copyrights = array(
+    'alistapart.com' => '
+<span lang="en">
+Translated with the permission of
+<a href="http://www.alistapart.com/">A List Apart</a>
+and the author[s].
+</span>'
+  );
+
+  foreach($url_copyrights as $key => $value){
+    if(stristr($url, $key)){
+      $copyright = $value;
+      break;
+    }
+  }
+
+  return $copyright;
+}
+
+/**
  * Fabien‑20110709 : modification pour pompage
  * Echapper les <code>...</ code>
  * http://doc.spip.org/@traiter_echap_code_dist
