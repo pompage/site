@@ -163,6 +163,13 @@ RewriteRule ^([\w]+)\.api(/(.*))?$ spip.php?action=api_$1&arg=$3 [QSA,L]
 # Fin des APIs
 ###
 
+###
+# Adaptive Images
+
+RewriteRule \badapt-img/(\d+/\d\dx/.*)$ spip.php?action=adapt_img&arg=$1 [QSA,L]
+
+# Fin des Adaptive Images
+###
 
 ###
 # URLs "propres", "propres2", "libres", "arbo"
