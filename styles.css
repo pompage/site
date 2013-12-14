@@ -37,7 +37,7 @@ body {
   height: 145px;
   margin: 0 0 0 481px;
   padding: 0px;
-  background: url(pompage-blue-beanie-day.png) no-repeat bottom;
+  background: url(pompage.gif) no-repeat bottom;
   text-indent: -9000px;
 }
 
@@ -351,7 +351,7 @@ a img {
 /*  ------------------------------------------
 */
 #header {
-  background: #FFF url(hdr_int-blue-beanie-day.jpg) no-repeat;
+  background: #FFF url(hdr_int.jpg) no-repeat;
   width: 100%;
   height: 67px;
   padding-bottom: 3px;
